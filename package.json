@@ -1,0 +1,20 @@
+{
+  "name": "mdparser",
+  "version": "0.0.1",
+  "description": "a markdown parser, transform a markdown file into a JSON representation",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/yazgazan/mdparser.git",
+  "keywords": [
+    "markdown",
+    "parser",
+    "mdparser"
+  ],
+  "author": "yazgazan@gmail.com",
+  "license": "BSD",
+  "dependencies": {
+    "yparser": "0.0.2"
+  }
+}
