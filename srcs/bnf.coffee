@@ -3,11 +3,11 @@ module.exports = '''
 
 main :: eol* [line_entities | eol]+ eof ;
 
-extra_entity :: false ;
-extra_formated :: false ;
+extend_entities :: false ;
+extend_formated :: false ;
 
-line_entities ::  title | rule | section | list | code | quote
-                | linkref | paragraph | extra_entity ;
+line_entities ::  extend_entities | title | rule | section | list | code | quote
+                | linkref | paragraph ;
 
 title ::  title:raw eol
           '='+ eol+;
@@ -49,6 +49,7 @@ raw :: [any ^ eol]+ ;
 
 formated :: [   raw:formated_raw
               | escaped
+              | extend_formated
               | bold_and_underlined#bold_and_underlined
               | bold#bold
               | underlined#underlined
@@ -57,7 +58,6 @@ formated :: [   raw:formated_raw
               | link#address_link
               | link#link_from_ref
               | image#image
-              | extra_formated
               | format_error:error_prone_chars ]+;
 
 formated_raw :: [   any ^ '*' ^ '_' ^ '[' ^ '`'
