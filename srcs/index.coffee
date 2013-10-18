@@ -1,14 +1,21 @@
 
 YParser = require "yparser"
-bnf = require './bnf.js'
+bnf = require './bnf'
+grammar = require './grammar'
 
 class MarkdownParser extends YParser.AstParser
   constructor: ->
     super()
+    @grammars = grammar
+
+  generateGrammar: ->
     gram = new YParser.GrammarParser
     gram.loadString bnf
     parser = gram.loadGrammar()
     @grammars = parser.grammars
+
+  printGrammar: ->
+    console.log "module.exports = #{JSON.stringify @grammars}"
 
   extendGrammar: (bnf) ->
     gram = new YParser.GrammarParser
