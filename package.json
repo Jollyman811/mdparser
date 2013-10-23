@@ -1,6 +1,6 @@
 {
   "name": "mdparser",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a markdown parser, transform a markdown file into a JSON representation",
   "main": "lib/index.js",
   "scripts": {
