@@ -45,7 +45,7 @@ class MarkdownParser extends YParser.AstParser
         return [newList, id]
       if node.level.length > lastLevel.length
         ret = @processList list, id
-        newList.nodes.push @createListItem [ret[0]]
+        newList.nodes[-1..][0].nodes.push ret[0]
         id = ret[1]
         continue
       newList.nodes.push node
